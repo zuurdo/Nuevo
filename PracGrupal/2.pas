@@ -1,18 +1,18 @@
 PROGRAM grupal;
 CONST
-  NCTIPO = 15; {n˙mero caracteres tipo}
-  NCIDENTIFICADOR = 4; {n˙mero caracteres del identificador del componente}
-  MAXPC = 25; {n˙mero de ordenadores (PC) m·ximos en la tienda}
-  MAXCOMPONENTES = 100; {n˙mero de componentes sueltos m·ximo}
+  NCTIPO = 15; {nË™mero caracteres tipo}
+  NCIDENTIFICADOR = 4; {nË™mero caracteres del identificador del componente}
+  MAXPC = 25; {nË™mero de ordenadores (PC) mÂ·ximos en la tienda}
+  MAXCOMPONENTES = 100; {nË™mero de componentes sueltos mÂ·ximo}
   MIN = 1;
 TYPE
   tTipo = string[NCTIPO]; {Tipo para almacenar el tipo del componente}
 
   tIdentificador = string[NCIDENTIFICADOR]; {Para almacenar el identificador}
 
-  tNumComponentes = MIN..MAXCOMPONENTES; {Para almacenar el Ìndice de componentes}
+  tNumComponentes = MIN..MAXCOMPONENTES; {Para almacenar el ÃŒndice de componentes}
 
-  tNumPc = MIN..MAXPC; {Tipo para almacenar el Ìndice de ordenadores}
+  tNumPc = MIN..MAXPC; {Tipo para almacenar el ÃŒndice de ordenadores}
 
   tComponente = RECORD {Tipo para almacenar un producto}
   	tipo: tTipo;
@@ -29,12 +29,12 @@ TYPE
 
   tListaPcs = ARRAY [tNumPc] OF tPc;
 
-  tAlmacenComponentes = RECORD {AlmacÈn de componentes}
+  tAlmacenComponentes = RECORD {AlmacÃˆn de componentes}
   	listaComponentes : tListaComponentes;
   	tope: integer;
   END;
 
-  tAlmacenPcs = RECORD {AlmacÈn de Pcs}
+  tAlmacenPcs = RECORD {AlmacÃˆn de Pcs}
   	listaPcs : tListaPcs;
   	tope: integer;
   END;
@@ -66,9 +66,9 @@ TYPE
  END;{inicio}
 
  PROCEDURE inicioPc(VAR almacenPc:tAlmacenPcs);
- BEGIN
+ BEGIN{inicioPc}
  	almacenPc.tope:=0;
- END;
+ END;{inicioPc}
 
 
 PROCEDURE mostrarMenu;
@@ -145,7 +145,7 @@ BEGIN{alta}
 		IF ordenador.datos.id=almacen.listaPcs[i].datos.id THEN
 			writeln('El identificador ya corresponde a otro ordenador')
 		ELSE	IF almacen.tope=MAXPC THEN
-					writeln('El almacen de ordenadores est� lleno')
+					writeln('El almacen de ordenadores está lleno')
 				ELSE
 					BEGIN
 						almacen.tope:=almacen.tope + 1;
